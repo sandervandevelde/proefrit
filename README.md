@@ -180,8 +180,8 @@ Connect USB to Serial;
 Reset;          Nuel Ok
 Switch On;      AT+CFUN=1
 Set IP;         AT+NCDP=172.16.0.36
-Set APN;        AT+CGDCONT=1,&quot;IP&quot;, &quot;parking.donas.nb-iot.com&quot;
-Attach;         AT+COPS=1,2,&quot;12345&quot;
+Set APN;        AT+CGDCONT=1,"IP", "parking.donas.nb-iot.com"
+Attach;         AT+COPS=1,2,"12345"
 Wait for IP;    AT+CGPADDR=1
 ```
 
@@ -200,9 +200,9 @@ AT+NCONFIG=AUTOCONNECT,FALSE
 ```
 Reset ;                 Nuel Ok
 Set IP;                 AT+NCDP=172.16.0.36
-Set APN;         AT+CGDCONT=1,&quot;IP&quot;, &quot;parking.donas.nb-iot.com&quot;
+Set APN;         AT+CGDCONT=1,"IP", "parking.donas.nb-iot.com"
 Switch On;        AT+CFUN=1
-Attach;                 AT+COPS=1,2,&quot;12345&quot;
+Attach;                 AT+COPS=1,2,"12345"
 Wait for IP;         AT+CGPADDR=1
 ```
 
