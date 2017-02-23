@@ -120,7 +120,7 @@ Please follow the steps below to use Postman:
 
 ![](https://github.com/tmnl-iot/proefrit/blob/master/images/postman_screenshot1.png)
 
-3. Now select manage environments &gt; import &gt; select the json file (environment json)
+3. Now select manage environments &gt; import &gt; select the environment json file
 
 ![](https://github.com/tmnl-iot/proefrit/blob/master/images/postman_screenshot2.png)
 
@@ -140,7 +140,7 @@ Please follow the steps below to use Postman:
 
 In the current trial set-up, you need to switch off SSL certificates check in the general Postman settings.
 
-1. To send data from the device, use the AT+NMGS=+NMGS=&lt;length&gt;,&lt;data&gt;
+7. To send data from the device, use the AT+NMGS=+NMGS=&lt;length&gt;,&lt;data&gt;
 
 - &lt;length&gt; Decimal length of message.
 
@@ -156,7 +156,9 @@ All AT commands are based on the Neul chipset. The complete Neul documentation c
 To check hardware and firmware version:
 
 Connect USB to Serial;
+
 Use 9600 Baud, 8 bits , 1 stop, Parity: None
+```
 Reset;                    Nuel Ok
 Switch On;                AT+CFUN=1
 Manufacturer;                 AT+CGMI
@@ -164,6 +166,7 @@ Model;                         AT+CGMM
 Firmware;                 AT+CGMR
 IMEI;                        AT+CGSN=1
 IMSI;                        AT+CIMI
+```
 
 Note: Please verify the firmware revision number anything equal or higher than SP11 will not work on the trial network.
 
