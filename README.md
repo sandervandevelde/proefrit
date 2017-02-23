@@ -10,6 +10,8 @@ Installation quick guide
 ![](https://github.com/tmnl-iot/proefrit/blob/master/images/iot_logo.png)
 
 
+![](https://github.com/tmnl-iot/proefrit/blob/master/images/logo%20tmnl.png)
+
 Document properties
 
 Creation date: 9-2-2017
