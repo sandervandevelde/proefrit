@@ -71,7 +71,7 @@ __High level steps for sending your Hello World:__
 
 3. Use the appropriate AT commands to establish a network attach with the T-Mobile IoT network.
 
->Specific information on module / modem set-up can be found in Chapter &quot;[Module commands](#module_commands)&quot;
+>Specific information on module / modem set-up can be found in Chapter &quot;[Module commands](https://github.com/tmnl-iot/proefrit#module-commands)&quot;
 
 4. Log in with your Ocean Connect credentials (provided by email) on [https://160.44.193.219:8843/#/login](https://160.44.193.219:8843/#/login)
 
