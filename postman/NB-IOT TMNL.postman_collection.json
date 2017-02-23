@@ -3,7 +3,7 @@
 	"info": {
 		"name": "NB-IOT TMNL",
 		"_postman_id": "986b3f92-80de-53f9-e013-736ebae6c79d",
-		"description": "",
+		"description": "Collection for accessing the NB IOT platform over the North API",
 		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
 	},
 	"item": [
@@ -103,7 +103,7 @@
 			},
 			"response": [
 				{
-					"id": "db177ad0-23c3-4af3-b3aa-bfa100e1bb89",
+					"id": "f0c517ec-e93a-44cd-bb5f-b24a5fbadcce",
 					"name": "DeviceInfo",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
@@ -221,7 +221,7 @@
 						}
 					],
 					"responseTime": "78",
-					"body": "{\"totalCount\":1}"
+					"body": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}"
 				}
 			]
 		},
@@ -328,7 +328,7 @@
 			},
 			"response": [
 				{
-					"id": "1826ac05-f8fa-49b5-94f0-11a19af6686e",
+					"id": "6b81f2de-cd14-4802-b4b0-a2316dd2d8f5",
 					"name": "DeviceInfo",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
@@ -446,7 +446,7 @@
 						}
 					],
 					"responseTime": "78",
-					"body": "{\"totalCount\":1}"
+					"body": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}"
 				}
 			]
 		},
@@ -507,7 +507,7 @@
 			},
 			"response": [
 				{
-					"id": "4af47109-e327-479a-80ad-00f67349efca",
+					"id": "55b7d7fb-d4d5-4d56-a982-b2dadadd72b8",
 					"name": "DeviceInfo",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
@@ -625,7 +625,7 @@
 						}
 					],
 					"responseTime": "78",
-					"body": "{\"totalCount\":1}"
+					"body": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}"
 				}
 			]
 		},
@@ -656,7 +656,7 @@
 			},
 			"response": [
 				{
-					"id": "60f3eb1d-4c31-4492-8340-0d19f7fcc4bf",
+					"id": "35cd713d-51ab-4cec-b6ee-9de385a7bcd4",
 					"name": "DeviceInfo",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
@@ -774,10 +774,10 @@
 						}
 					],
 					"responseTime": "78",
-					"body": "{\"totalCount\":1}"
+					"body": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}"
 				},
 				{
-					"id": "172c1a9d-6022-423e-9556-cd7ca8e90ee0",
+					"id": "f439f4c6-e616-4cc0-b130-420fd35e38e9",
 					"name": "command",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/data/v1.1.0/deviceCapabilities?deviceId={{deviceId}}",
