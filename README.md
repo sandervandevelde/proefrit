@@ -6,7 +6,7 @@ Installation quick guide
 ===
 ### Hello World! on the NB-IoT Trial network of T-Mobile NL
 
-
+{:.center}
 ![](https://github.com/tmnl-iot/proefrit/blob/master/images/iot_logo.png)
 
 
