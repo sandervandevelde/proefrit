@@ -83,13 +83,19 @@ __High level steps for sending your Hello World:__
 
 6. Go to App Management &gt; Applications and click on the default app that was created on your account (app name is nbiot\_yourcompany).
 
-7. Copy the different IP addresses that are needed in your set-up (see screenshots, needed in next steps):
+7. Copy the different IP addresses that are needed in your set-up (see screenshot, needed in next steps):
 
 - Application Docking IP-address (not necessary, only when running own Ocean Connect instance)
 - Devices Docking IP-address (use this IP address in your AT commands)
 - North API IP-address ( [https://160.44.193.23:8743](https://160.44.193.23:8743) )
 
-8. You will see a service and device template which is already created for you, this will only transport RAW data from your device to the API.
+![](https://github.com/tmnl-iot/proefrit/blob/master/images/ocean_connect_screenshot1.png)
+
+8. Go to App Management > Applications > yourAppId > App Resource
+
+![](https://github.com/tmnl-iot/proefrit/blob/master/images/ocean_connect_screenshot2.png)
+
+9. You will see a service and device template which is already created for you, this will only transport RAW data from your device to the API.
 
 >If you want to create your own device and service templates (for example to transfer different data types) use the upload button to upload a zip file containing your service and device template (this zip file needs to contain the files devicetype-capability.json and servicetype-capability.json both in the appropriate folder). This will define which kind of devices you will use and which kind of data they will transmit. Please make sure that the filename is in the right format: devicetype\_manufacturer\_model.zip and that you use exactly the same names in your Set Device Info API call!
 
@@ -100,7 +106,7 @@ If your devices are able to make a network attach and send the raw data, the fin
 
 In this quick guide we will show how this can be done by using the program Postman (download on [https://www.getpostman.com/](https://www.getpostman.com/) , please use the program and not the Chrome plugin), which can be used to test and simulate your application talking to our API.
 
-On Github you can download our Postman collection and environment variables, with the example code.
+On Github you can download our [Postman](https://github.com/tmnl-iot/proefrit/tree/master/postman) collection and environment variables, with the example code.
 
 Postman can also convert this collection into for example Python or PHP scripts.
 
@@ -108,7 +114,7 @@ Postman can also convert this collection into for example Python or PHP scripts.
 
 Please follow the steps below to use Postman:
 
-1. Use the file cert.zip containing the security certificates to connect to the Ocean Connect API. For use within Postman, you need to split the certificate into a \*.crt and \*.key file. Instructions on how to do this can be found in the chapter &quot;Security certificates&quot;.
+1. Use the file cert.zip containing the security certificates to connect to the Ocean Connect API. For use within Postman, you need to split the certificate into a \*.crt and \*.key file. Instructions on how to do this can be found in the chapter &quot;[Security certificates](#security-certificates-for-using-the-api)&quot;.
 
 2. Import the TMNL postman collection NB-IOT TMNL.postman\_collection.json (download from repository)
 
