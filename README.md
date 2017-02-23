@@ -116,21 +116,27 @@ Please follow the steps below to use Postman:
 
 1. Use the file cert.zip containing the security certificates to connect to the Ocean Connect API. For use within Postman, you need to split the certificate into a \*.crt and \*.key file. Instructions on how to do this can be found in the chapter &quot;[Security certificates](#security-certificates-for-using-the-api)&quot;.
 
-2. Import the TMNL postman collection NB-IOT TMNL.postman\_collection.json (download from repository)
+2. Import the TMNL postman collection [NB-IOT TMNL.postman\_collection.json](https://github.com/tmnl-iot/proefrit/blob/master/postman/NB-IOT%20TMNL.postman_collection.json)
 
-3. Select manage environments &gt; import &gt; select the json file (environment json)
+![](https://github.com/tmnl-iot/proefrit/blob/master/images/postman_screenshot1.png)
+
+3. Now select manage environments &gt; import &gt; select the json file (environment json)
+
+![](https://github.com/tmnl-iot/proefrit/blob/master/images/postman_screenshot2.png)
 
 4. Click on IOT portal to edit the variables, enter your appID and Secret (send in email)
 
+![](https://github.com/tmnl-iot/proefrit/blob/master/images/postman_screenshot3.png)
+
 5. You should now be able to use the POST Login, to get an access token from the API. This access token you can enter into the environment variables (our Postman collection has a script to do this automatically).
 
-6. With the access token entered, you should be able to use;
+6. With the access token entered, you should be able to use:
 
 - Get Devices – in case you already have devices registered
 
 - Register device – to register the IMEI (please enter the IMEI in the fields VerifyCode and NodeID)
 
-- SetDeviceInfo – to set additional info of your device, like its name, manufacturer and model.
+- SetDeviceInfo – to set additional info of your device, like its name, manufacturer and model. __Please make sure to use exactly the same names of manufacturer, devicetype and model as in the device template on Ocean Connect!__ 
 
 In the current trial set-up, you need to switch off SSL certificates check in the general Postman settings.
 
