@@ -53,6 +53,7 @@ This installation manual describes the steps necessary to connect to the trial I
 >This quick guide only focuses on the software side of setting up an NB-IoT connection. Please review the documentation from your module manufacturer on how to connect the module to your programmable board (the pin layout of most modules is the same as current market models working on GPRS or 3G).
 
 
+
 __High level steps for sending your Hello World:__
 
 - Retrieve the IMEI number of your device
@@ -63,6 +64,7 @@ __High level steps for sending your Hello World:__
 - Use the appropriate AT commands to establish a network attach 
 - Use AT+NMGS=<length>,<data> to send your Hello World!
 - GET Get device data history to retrieve your Hello World! via the API
+
 
 
 ### Detailed steps
