@@ -174,12 +174,12 @@ To establish network attach:
 
 Connect USB to Serial;
 9600 Baud, 8 bits , 1 stop, Parity: None
-Reset ;                 Nuel Ok
-Switch On;        AT+CFUN=1
-Set IP;                 AT+NCDP=172.16.0.36
-Set APN;         AT+CGDCONT=1,&quot;IP&quot;, &quot;parking.donas.nb-iot.com&quot;
-Attach;                 AT+COPS=1,2,&quot;12345&quot;
-Wait for IP;         AT+CGPADDR=1
+Reset;          Nuel Ok
+Switch On;      AT+CFUN=1
+Set IP;         AT+NCDP=172.16.0.36
+Set APN;        AT+CGDCONT=1,&quot;IP&quot;, &quot;parking.donas.nb-iot.com&quot;
+Attach;         AT+COPS=1,2,&quot;12345&quot;
+Wait for IP;    AT+CGPADDR=1
 
 Note: Newer Firmware versions (SP8) require a slightly different approach.
 
