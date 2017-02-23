@@ -15,6 +15,7 @@ Document properties
 Creation date: 9-2-2017
 
 Last update: 21-2-2-17
+
 Author: Eric Barten, Thees Brons
 
 
@@ -46,12 +47,14 @@ This installation manual describes the steps necessary to connect to the trial I
 - The test SIM-card from T-Mobile installed
 - Located in area with NB-IoT coverage (please contact T-Mobile for the latest coverage information or visit the Proefrit section on forum.things.nl ).
 
+
 >This quick guide only focuses on the software side of setting up an NB-IoT connection. Please review the documentation from your module manufacturer on how to connect the module to your programmable board (the pin layout of most modules is the same as current market models working on GPRS or 3G).
+
 
 __High level steps for sending your Hello World:__
 
 - Retrieve the IMEI number of your device
-- Set up Postman or another API program with the correct environment variables (certificates, app ID en app key)
+- Set up Postman or another API program with the correct environment [variables](https://github.com/tmnl-iot/proefrit/blob/master/postman/iot_portal.postman_environment.json) (certificates, app ID en app key)
 - POST Login to API to retrieve access token
 - POST Register device to create new device with IMEI and a name
 - PUT Set device info to set manufacturer, devicetype and model of your device (__should be exactly the same as the manufacturer, devicetype and model in your device template in Ocean Connect__).
@@ -68,7 +71,7 @@ __High level steps for sending your Hello World:__
 
 3. Use the appropriate AT commands to establish a network attach with the T-Mobile IoT network.
 
->Specific information on module / modem set-up can be found in Chapter &quot;Module commands&quot;
+>Specific information on module / modem set-up can be found in Chapter &quot;[Module commands](#module_commands)&quot;
 
 4. Log in with your Ocean Connect credentials (provided by email) on [https://160.44.193.219:8843/#/login](https://160.44.193.219:8843/#/login)
 
