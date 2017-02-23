@@ -159,13 +159,13 @@ Connect USB to Serial;
 
 Use 9600 Baud, 8 bits , 1 stop, Parity: None
 ```
-Reset;                    Nuel Ok
-Switch On;                AT+CFUN=1
-Manufacturer;                 AT+CGMI
-Model;                         AT+CGMM
-Firmware;                 AT+CGMR
-IMEI;                        AT+CGSN=1
-IMSI;                        AT+CIMI
+|Reset;    |                Nuel Ok|
+|Switch On;   |             AT+CFUN=1|
+|Manufacturer;   |          AT+CGMI|
+|Model;       |                  AT+CGMM|
+|Firmware;     |            AT+CGMR|
+|IMEI;         |               AT+CGSN=1|
+|IMSI;          |              AT+CIMI|
 ```
 
 Note: Please verify the firmware revision number anything equal or higher than SP11 will not work on the trial network.
