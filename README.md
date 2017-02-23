@@ -158,29 +158,31 @@ To check hardware and firmware version:
 Connect USB to Serial;
 
 Use 9600 Baud, 8 bits , 1 stop, Parity: None
-
-|Reset    |                Nuel Ok|
-|Switch On   |             AT+CFUN=1|
-|Manufacturer   |          AT+CGMI|
-|Model;       |                  AT+CGMM|
-|Firmware;     |            AT+CGMR|
-|IMEI;         |               AT+CGSN=1|
-|IMSI;          |              AT+CIMI|
-
+```
+Reset;                   Nuel Ok
+Switch On;               AT+CFUN=1
+Manufacturer;            AT+CGMI
+Model;                   AT+CGMM
+Firmware;                AT+CGMR
+IMEI;                    AT+CGSN=1
+IMSI;                    AT+CIMI
+```
 
 Note: Please verify the firmware revision number anything equal or higher than SP11 will not work on the trial network.
 
 To establish network attach:
 
 Connect USB to Serial;
+
 9600 Baud, 8 bits , 1 stop, Parity: None
+``
 Reset;          Nuel Ok
 Switch On;      AT+CFUN=1
 Set IP;         AT+NCDP=172.16.0.36
 Set APN;        AT+CGDCONT=1,&quot;IP&quot;, &quot;parking.donas.nb-iot.com&quot;
 Attach;         AT+COPS=1,2,&quot;12345&quot;
 Wait for IP;    AT+CGPADDR=1
-
+````
 Note: Newer Firmware versions (SP8) require a slightly different approach.
 
 By default these modules have auto connect configured. The CDP must be set before connection to the network is performed. (From the manual; Set the module to minimum functionality (issuing AT+CFUN=0 command) before sending the NCDP command).
