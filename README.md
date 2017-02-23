@@ -159,9 +159,9 @@ Connect USB to Serial;
 
 Use 9600 Baud, 8 bits , 1 stop, Parity: None
 
-|Reset;    |                Nuel Ok|
-|Switch On;   |             AT+CFUN=1|
-|Manufacturer;   |          AT+CGMI|
+|Reset    |                Nuel Ok|
+|Switch On   |             AT+CFUN=1|
+|Manufacturer   |          AT+CGMI|
 |Model;       |                  AT+CGMM|
 |Firmware;     |            AT+CGMR|
 |IMEI;         |               AT+CGSN=1|
