@@ -1,0 +1,847 @@
+{
+	"id": "986b3f92-80de-53f9-e013-736ebae6c79d",
+	"name": "NB-IOT TMNL",
+	"description": "",
+	"order": [
+		"3a1bf2cb-51fe-f50e-b9fd-fcac28b50868",
+		"5f5c9534-72b6-cb75-5f19-c22b56a85d04",
+		"aeddefee-bc9c-eebc-f0b6-4477c0d9b617",
+		"3dc620bb-b8e8-8ff7-a4cf-8dad0d86ba7a",
+		"c1194b61-949e-e716-ee3b-c3f6134d912a",
+		"e22ebb0d-c377-343a-f004-7e4b4112b677",
+		"e6c5bef9-21cc-9c34-62a9-44228b0057ae",
+		"a61e110d-230d-8eb0-6321-113108111e3d",
+		"d295403c-5fbf-a5b0-fc1a-c8dc4b6030eb",
+		"65e2c558-88f0-d078-e780-3823f0c19dd5",
+		"020603bc-28b2-d210-17ac-2fd1ab392ad1",
+		"30fb95a7-4866-4690-3c5d-d6e2a2c2ecaf"
+	],
+	"folders": [],
+	"timestamp": 0,
+	"owner": "1061061",
+	"public": false,
+	"requests": [
+		{
+			"folder": null,
+			"id": "020603bc-28b2-d210-17ac-2fd1ab392ad1",
+			"name": "Update Rule",
+			"dataMode": "raw",
+			"data": [],
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"method": "PUT",
+			"pathVariables": {},
+			"url": "https://{{url_port_sec}}/iocm/app/rule/v1.2.0/rules",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"rawModeData": "{\n  \"name\":\"SendSMS\",\n  \"author\":\"Eric\",\n  \"ruleId\":\"5859578b1170a3bc53a575d1\",\n  \"conditions\": [{\n    \"type\": \"DEVICE_DATA\",\n    \"deviceInfo\" : {\n      \"deviceId\" : \"{{deviceId}}\",\n      \"path\" : \"RawData/Text\"\n    },\n    \"operator\":\"=\",\n    \"value\":\"SGVsbG8gV29ybGQh\"\n  }],\n  \"actions\" : [\n    {\n      \"type\": \"SMS\",\n      \"msisdn\" : \"0031624097165\",\n      \"content\" : \"A rule was triggered\",\n      \"subject\" : \"Devicerule trigger\"\n    }]\n}"
+		},
+		{
+			"folder": null,
+			"id": "30fb95a7-4866-4690-3c5d-d6e2a2c2ecaf",
+			"name": "refreshToken",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "",
+			"headers": "",
+			"method": "POST",
+			"pathVariables": {},
+			"url": "https://{{url_port_sec}}/iocm/app/sec/v1.1.0/refreshToken",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [],
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d"
+		},
+		{
+			"id": "3a1bf2cb-51fe-f50e-b9fd-fcac28b50868",
+			"headers": "Content-Type: application/x-www-form-urlencoded\n",
+			"url": "https://{{url_port_sec}}/iocm/app/sec/v1.1.0/login",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [
+				{
+					"key": "appId",
+					"value": "{{appId}}",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				},
+				{
+					"key": "Secret",
+					"value": "{{secret}}",
+					"type": "text",
+					"enabled": true,
+					"warning": ""
+				}
+			],
+			"dataMode": "urlencoded",
+			"tests": "tests[\"response code is 200\"] = responseCode.code === 200;\n\nvar body = JSON.parse(responseBody);\ntests[\"Body contains scope \"] = body.scope === \"default\";\n\npostman.setEnvironmentVariable(\"accessToken\", body.accessToken);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487075830091,
+			"name": "login",
+			"description": "Login",
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"responses": []
+		},
+		{
+			"id": "3dc620bb-b8e8-8ff7-a4cf-8dad0d86ba7a",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"url": "https://{{url_port_sec}}/iocm/app/dm/v1.2.0/devices/{{deviceId}}",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "PUT",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487076032652,
+			"name": "Set device Info",
+			"description": "",
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"responses": [],
+			"rawModeData": "{ \r\n    \"name\":\"My_Device\" ,    \r\n    \"endUserId\":\"Name\",\r\n    \"mute\":\"FALSE\",\r\n    \"manufacturerId\":\"ManufId\",\r\n    \"manufacturerName\":\"ManufName\",\r\n    \"location\":\"NL\",\r\n    \"deviceType\":\"MultiSensor\",\r\n    \"protocolType\":\"CoAP\",\r\n    \"model\":\"BC95-b8\"\r\n}"
+		},
+		{
+			"id": "5f5c9534-72b6-cb75-5f19-c22b56a85d04",
+			"folder": null,
+			"name": "get devices",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
+			"preRequestScript": null,
+			"tests": "tests[\"response code is 200\"] = responseCode.code === 200;\n\nvar body = JSON.parse(responseBody);\ntests[\"Body contains scope \"] = body.scope === \"default\";\n\npostman.setEnvironmentVariable(\"deviceId\", body.devices[0].deviceId);\npostman.setEnvironmentVariable(\"gatewayId\", body.devices[0].gatewayId);\n",
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+						"fromServer": true
+					},
+					"time": 78,
+					"headers": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self'",
+							"name": "Content-Security-Policy",
+							"description": "Custom header"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Dec 2016 13:42:23 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "WSO2-PassThrough-HTTP",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=16000000; includeSubDomains; preload;",
+							"name": "Strict-Transport-Security",
+							"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookies": [
+						{
+							"url": "https://160.44.193.23:8743/iocm/app/dm/v1.1.0/devices?pageNo=0",
+							"name": "JSESSIONID",
+							"value": "98B87AA8AC50A01D870BACB0BD36870B",
+							"domain": "160.44.193.23",
+							"secure": true,
+							"httpOnly": true,
+							"expirationDate": 2147480047,
+							"path": "/"
+						}
+					],
+					"mime": "",
+					"text": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"responseSize": {
+						"body": 715,
+						"header": 496
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, eyJ0b3RhbENvdW50IjoxLCJwYWdlTm8iOjAsInBhZ2VTaXplIjoxLCJkZXZpY2VzIjpbeyJkZXZpY2VJZCI6ImY4YWRmY2I1LWIwZjYtNDBhMy04NmY3LTViZmUxZDRkMTM3MCIsImdhdGV3YXlJZCI6ImY4YWRmY2I1LWIwZjYtNDBhMy04NmY3LTViZmUxZDRkMTM3MCIsIm5vZGVUeXBlIjoiR0FURVdBWSIsImNyZWF0ZVRpbWUiOiIyMDE2MTIxNFQxNDUwMThaIiwibGFzdE1vZGlmaWVkVGltZSI6IjIwMTYxMjE1VDEyMjQxNloiLCJkZXZpY2VJbmZvIjp7Im5vZGVJZCI6IjM1OTI0NTA2MzQ4Mjc1NCIsIm5hbWUiOiJOdWVsX0V2S19FcmljIiwiZGVzY3JpcHRpb24iOm51bGwsIm1hbnVmYWN0dXJlcklkIjoiTmV1bCIsIm1hbnVmYWN0dXJlck5hbWUiOiJOZXVsIiwibWFjIjpudWxsLCJsb2NhdGlvbiI6Ik5MX0RIIiwiZGV2aWNlVHlwZSI6Ik11bHRpU2Vuc29yIiwibW9kZWwiOiIxNjIzIiwic3dWZXJzaW9uIjpudWxsLCJmd1ZlcnNpb24iOm51bGwsImh3VmVyc2lvbiI6bnVsbCwicHJvdG9jb2xUeXBlIjoiQ29BUCIsImJyaWRnZUlkIjpudWxsLCJzdGF0dXMiOiJPTkxJTkUiLCJzdGF0dXNEZXRhaWwiOiJOT05FIiwibXV0ZSI6IkZBTFNFIiwic3VwcG9ydGVkU2VjdXJpdHkiOm51bGwsImlzU2VjdXJpdHkiOm51bGwsInNpZ25hbFN0cmVuZ3RoIjpudWxsLCJzaWdWZXJzaW9uIjpudWxsLCJzZXJpYWxOdW1iZXIiOm51bGx9LCJzZXJ2aWNlcyI6bnVsbH1dfQ==",
+					"state": {
+						"size": "normal"
+					},
+					"id": "6c56eb12-4cea-3479-b895-94c15cfb2693",
+					"name": "DeviceInfo",
+					"request": {
+						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
+						"headers": [
+							{
+								"key": "app_key",
+								"value": "{{appId}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content",
+								"disabled": false
+							}
+						],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			],
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d"
+		},
+		{
+			"id": "65e2c558-88f0-d078-e780-3823f0c19dd5",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"url": "https://{{url_port_sec}}/iocm/app/rule/v1.2.0/rules",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487076222146,
+			"name": "Set Rule",
+			"description": "",
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"responses": [],
+			"rawModeData": "{\n  \"name\":\"SendSMS\",\n  \"author\":\"Name\",\n  \"conditions\": [{\n    \"type\": \"DEVICE_DATA\",\n    \"deviceInfo\" : {\n      \"deviceId\" : \"{{deviceId}}\",\n      \"path\" : \"RawData/Text\"\n    },\n    \"operator\":\"=\",\n    \"value\":\"ON\"\n  }],\n  \"actions\" : [\n    {\n      \"type\": \"SMS\",\n      \"msisdn\" : \"+31624097165\",\n      \"content\" : \"A rule was triggered\",\n      \"subject\" : \"Devicerule trigger\"\n    }]\n}"
+		},
+		{
+			"folder": null,
+			"id": "a61e110d-230d-8eb0-6321-113108111e3d",
+			"name": "get device capability",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": "html",
+			"description": "",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "https://{{url_port_sec}}/iocm/app/data/v1.1.0/deviceCapabilities?deviceId={{deviceId}}",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"responses": [
+				{
+					"owner": "1061061",
+					"lastUpdatedBy": "1061061",
+					"lastRevision": 865298609,
+					"request": {
+						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
+						"headers": [
+							{
+								"key": "app_key",
+								"value": "{{appId}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content",
+								"disabled": false
+							}
+						],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"id": "d35adccb-ddc4-955c-f10c-922e23c5d9b6",
+					"name": "DeviceInfo",
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"fromServer": true
+					},
+					"time": "78",
+					"headers": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"name": "Cache-Control",
+							"description": ""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self'",
+							"name": "Content-Security-Policy",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Dec 2016 13:42:23 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT",
+							"name": "Expires",
+							"description": ""
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "WSO2-PassThrough-HTTP",
+							"name": "Server",
+							"description": ""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=16000000; includeSubDomains; preload;",
+							"name": "Strict-Transport-Security",
+							"description": ""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": ""
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": ""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"name": "X-Frame-Options",
+							"description": ""
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": ""
+						}
+					],
+					"cookies": [
+						{
+							"url": "https://160.44.193.23:8743/iocm/app/dm/v1.1.0/devices?pageNo=0",
+							"name": "JSESSIONID",
+							"value": "98B87AA8AC50A01D870BACB0BD36870B",
+							"domain": "160.44.193.23",
+							"secure": true,
+							"httpOnly": true,
+							"expirationDate": 2147480047,
+							"path": "/"
+						}
+					],
+					"mime": "",
+					"text": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}",
+					"language": "json",
+					"rawDataType": null,
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "text",
+					"searchResultScrolledTo": "-1",
+					"version": null,
+					"requestObject": "{\"url\":\"https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0\",\"headers\":[{\"key\":\"app_key\",\"value\":\"{{appId}}\",\"enabled\":true,\"disabled\":false},{\"key\":\"Authorization\",\"value\":\"Bearer {{accessToken}}\",\"enabled\":true,\"disabled\":false},{\"key\":\"Content-Type\",\"value\":\"application/json\",\"enabled\":true,\"description\":\"The mime type of this content\",\"disabled\":false}],\"data\":null,\"method\":\"GET\",\"dataMode\":\"params\"}",
+					"createdAt": "2016-12-20T13:28:33.000Z",
+					"updatedAt": "2016-12-20T13:28:33.000Z",
+					"write": true
+				}
+			]
+		},
+		{
+			"id": "aeddefee-bc9c-eebc-f0b6-4477c0d9b617",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"url": "https://{{url_port_sec}}/iocm/app/reg/v1.2.0/devices",
+			"preRequestScript": "",
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": "tests[\"response code is 200\"] = responseCode.code === 200;\n\nvar body = JSON.parse(responseBody);\ntests[\"Body contains deviceId \"] = body.deviceId === \"deviceId\";\n\npostman.setEnvironmentVariable(\"deviceId\", body.deviceId);",
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1487076025631,
+			"name": "Register Device",
+			"description": "",
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"responses": [],
+			"rawModeData": "{ \r\n    \"verifyCode\":\"device_IMEI\", \r\n    \"nodeId\":\"device_IMEI\", \r\n    \"timeout\":0,    \r\n    \"endUserId\":\"Name\"\r\n}"
+		},
+		{
+			"folder": null,
+			"id": "c1194b61-949e-e716-ee3b-c3f6134d912a",
+			"name": "get devices active status",
+			"dataMode": "params",
+			"data": null,
+			"rawModeData": null,
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices/{{deviceId}}",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"responses": [
+				{
+					"owner": "1061061",
+					"lastUpdatedBy": "1061061",
+					"lastRevision": 919520402,
+					"request": {
+						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
+						"headers": [
+							{
+								"key": "app_key",
+								"value": "{{appId}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content",
+								"disabled": false
+							}
+						],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"id": "12169e6a-9434-ad06-35f2-4fd137b8f83a",
+					"name": "DeviceInfo",
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"fromServer": true
+					},
+					"time": "78",
+					"headers": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"name": "Cache-Control",
+							"description": ""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self'",
+							"name": "Content-Security-Policy",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Dec 2016 13:42:23 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT",
+							"name": "Expires",
+							"description": ""
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "WSO2-PassThrough-HTTP",
+							"name": "Server",
+							"description": ""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=16000000; includeSubDomains; preload;",
+							"name": "Strict-Transport-Security",
+							"description": ""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": ""
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": ""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"name": "X-Frame-Options",
+							"description": ""
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": ""
+						}
+					],
+					"cookies": [
+						{
+							"url": "https://160.44.193.23:8743/iocm/app/dm/v1.1.0/devices?pageNo=0",
+							"name": "JSESSIONID",
+							"value": "98B87AA8AC50A01D870BACB0BD36870B",
+							"domain": "160.44.193.23",
+							"secure": true,
+							"httpOnly": true,
+							"expirationDate": 2147480047,
+							"path": "/"
+						}
+					],
+					"mime": "",
+					"text": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}",
+					"language": "json",
+					"rawDataType": null,
+					"state": {
+						"size": "normal"
+					},
+					"previewType": "text",
+					"searchResultScrolledTo": "-1",
+					"version": null,
+					"requestObject": "{\"url\":\"https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0\",\"headers\":[{\"key\":\"app_key\",\"value\":\"{{appId}}\",\"enabled\":true,\"disabled\":false},{\"key\":\"Authorization\",\"value\":\"Bearer {{accessToken}}\",\"enabled\":true,\"disabled\":false},{\"key\":\"Content-Type\",\"value\":\"application/json\",\"enabled\":true,\"description\":\"The mime type of this content\",\"disabled\":false}],\"data\":null,\"method\":\"GET\",\"dataMode\":\"params\"}",
+					"createdAt": "2017-01-09T12:31:15.000Z",
+					"updatedAt": "2017-01-09T12:31:15.000Z",
+					"write": true
+				}
+			]
+		},
+		{
+			"folder": null,
+			"id": "d295403c-5fbf-a5b0-fc1a-c8dc4b6030eb",
+			"name": "Get Rules",
+			"dataMode": "raw",
+			"data": [],
+			"descriptionFormat": null,
+			"description": "",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"method": "GET",
+			"pathVariables": {},
+			"url": "https://{{url_port_sec}}/iocm/app/rule/v1.2.0/rules?author=Eric",
+			"preRequestScript": null,
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"rawModeData": "{\n  \"name\":\"SendSMS\",\n  \"author\":\"Eric\",\n  \"conditions\": [{\n    \"type\": \"DEVICE_DATA\",\n    \"deviceInfo\" : {\n      \"deviceId\" : \"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\n      \"path\" : \"/\"\n    },\n    \"operator\":\"=\",\n    \"value\":\"\"\n  }],\n  \"actions\" : [\n    {\n      \"type\": \"SMS\",\n      \"msisdn\" : \"+31624097165\",\n      \"content\" : \"A rule was triggered\",\n      \"subject\" : \"Devicerule trigger\"\n    }]\n}"
+		},
+		{
+			"id": "e22ebb0d-c377-343a-f004-7e4b4112b677",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"url": "https://{{url_port_sec}}/iocm/app/sub/v1.1.0/subscribe",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "POST",
+			"data": [],
+			"dataMode": "raw",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": {},
+			"time": 1486751010892,
+			"name": "Bind application",
+			"description": "Subscribe application",
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"responses": [],
+			"rawModeData": "{\n  \"notifyType\":\"serviceInfoChanged\",\n  \"callbackurl\":\"http://02ca8972.ngrok.io:8080\"\n}"
+		},
+		{
+			"id": "e6c5bef9-21cc-9c34-62a9-44228b0057ae",
+			"headers": "app_key: {{appId}}\nAuthorization: Bearer {{accessToken}}\nContent-Type: application/json\n",
+			"url": "https://{{url_port_sec}}/iocm/app/data/v1.1.0/deviceDataHistory?deviceId={{deviceId}}&gatewayId={{gatewayId}}",
+			"preRequestScript": null,
+			"pathVariables": {},
+			"method": "GET",
+			"data": null,
+			"dataMode": "params",
+			"tests": null,
+			"currentHelper": "normal",
+			"helperAttributes": "{}",
+			"time": 1482163713338,
+			"name": "get device data history",
+			"description": "",
+			"collectionId": "986b3f92-80de-53f9-e013-736ebae6c79d",
+			"responses": [
+				{
+					"status": "",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+						"fromServer": true
+					},
+					"time": 78,
+					"headers": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"name": "Cache-Control",
+							"description": "Tells all caching mechanisms from server to client whether they may cache this object. It is measured in seconds"
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self'",
+							"name": "Content-Security-Policy",
+							"description": "Custom header"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Dec 2016 13:42:23 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT",
+							"name": "Expires",
+							"description": "Gives the date/time after which the response is considered stale"
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": "Implementation-specific headers that may have various effects anywhere along the request-response chain."
+						},
+						{
+							"key": "Server",
+							"value": "WSO2-PassThrough-HTTP",
+							"name": "Server",
+							"description": "A name for the server"
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=16000000; includeSubDomains; preload;",
+							"name": "Strict-Transport-Security",
+							"description": "A HSTS Policy informing the HTTP client how long to cache the HTTPS only policy and whether this applies to subdomains."
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": "The only defined value, \"nosniff\", prevents Internet Explorer from MIME-sniffing a response away from the declared content-type"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"name": "X-Frame-Options",
+							"description": "Clickjacking protection: \"deny\" - no rendering within a frame, \"sameorigin\" - no rendering if origin mismatch"
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": "Cross-site scripting (XSS) filter"
+						}
+					],
+					"cookies": [
+						{
+							"url": "https://160.44.193.23:8743/iocm/app/dm/v1.1.0/devices?pageNo=0",
+							"name": "JSESSIONID",
+							"value": "98B87AA8AC50A01D870BACB0BD36870B",
+							"domain": "160.44.193.23",
+							"secure": true,
+							"httpOnly": true,
+							"expirationDate": 2147480047,
+							"path": "/"
+						}
+					],
+					"mime": "",
+					"text": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}",
+					"language": "json",
+					"previewType": "text",
+					"searchResultScrolledTo": -1,
+					"forceNoPretty": false,
+					"write": true,
+					"empty": false,
+					"failed": false,
+					"responseSize": {
+						"body": 715,
+						"header": 496
+					},
+					"mimeType": "text",
+					"fileName": "response.json",
+					"dataURI": "data:application/json;base64, eyJ0b3RhbENvdW50IjoxLCJwYWdlTm8iOjAsInBhZ2VTaXplIjoxLCJkZXZpY2VzIjpbeyJkZXZpY2VJZCI6ImY4YWRmY2I1LWIwZjYtNDBhMy04NmY3LTViZmUxZDRkMTM3MCIsImdhdGV3YXlJZCI6ImY4YWRmY2I1LWIwZjYtNDBhMy04NmY3LTViZmUxZDRkMTM3MCIsIm5vZGVUeXBlIjoiR0FURVdBWSIsImNyZWF0ZVRpbWUiOiIyMDE2MTIxNFQxNDUwMThaIiwibGFzdE1vZGlmaWVkVGltZSI6IjIwMTYxMjE1VDEyMjQxNloiLCJkZXZpY2VJbmZvIjp7Im5vZGVJZCI6IjM1OTI0NTA2MzQ4Mjc1NCIsIm5hbWUiOiJOdWVsX0V2S19FcmljIiwiZGVzY3JpcHRpb24iOm51bGwsIm1hbnVmYWN0dXJlcklkIjoiTmV1bCIsIm1hbnVmYWN0dXJlck5hbWUiOiJOZXVsIiwibWFjIjpudWxsLCJsb2NhdGlvbiI6Ik5MX0RIIiwiZGV2aWNlVHlwZSI6Ik11bHRpU2Vuc29yIiwibW9kZWwiOiIxNjIzIiwic3dWZXJzaW9uIjpudWxsLCJmd1ZlcnNpb24iOm51bGwsImh3VmVyc2lvbiI6bnVsbCwicHJvdG9jb2xUeXBlIjoiQ29BUCIsImJyaWRnZUlkIjpudWxsLCJzdGF0dXMiOiJPTkxJTkUiLCJzdGF0dXNEZXRhaWwiOiJOT05FIiwibXV0ZSI6IkZBTFNFIiwic3VwcG9ydGVkU2VjdXJpdHkiOm51bGwsImlzU2VjdXJpdHkiOm51bGwsInNpZ25hbFN0cmVuZ3RoIjpudWxsLCJzaWdWZXJzaW9uIjpudWxsLCJzZXJpYWxOdW1iZXIiOm51bGx9LCJzZXJ2aWNlcyI6bnVsbH1dfQ==",
+					"state": {
+						"size": "normal"
+					},
+					"id": "cc8bfc08-805a-b7b2-9bcd-42173c8fb683",
+					"name": "DeviceInfo",
+					"request": {
+						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
+						"headers": [
+							{
+								"key": "app_key",
+								"value": "{{appId}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content",
+								"disabled": false
+							}
+						],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					}
+				}
+			],
+			"folder": null,
+			"rawModeData": null,
+			"descriptionFormat": "html"
+		}
+	]
+}
