@@ -103,7 +103,7 @@
 			},
 			"response": [
 				{
-					"id": "f0c517ec-e93a-44cd-bb5f-b24a5fbadcce",
+					"id": "cb22e946-28e7-495e-a22d-fb801005151e",
 					"name": "DeviceInfo",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
@@ -328,7 +328,7 @@
 			},
 			"response": [
 				{
-					"id": "6b81f2de-cd14-4802-b4b0-a2316dd2d8f5",
+					"id": "21ac1d9e-bbee-42a6-a830-72b0636f6a42",
 					"name": "DeviceInfo",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
@@ -507,7 +507,7 @@
 			},
 			"response": [
 				{
-					"id": "55b7d7fb-d4d5-4d56-a982-b2dadadd72b8",
+					"id": "4bc55088-ec85-42e1-9363-ddc54da114e0",
 					"name": "DeviceInfo",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
@@ -656,7 +656,7 @@
 			},
 			"response": [
 				{
-					"id": "35cd713d-51ab-4cec-b6ee-9de385a7bcd4",
+					"id": "7c2216c3-2534-4a9c-b679-8f5687c8d973",
 					"name": "DeviceInfo",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
@@ -777,7 +777,7 @@
 					"body": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}"
 				},
 				{
-					"id": "f439f4c6-e616-4cc0-b130-420fd35e38e9",
+					"id": "a68a35fd-5d40-4772-b2d3-36dba38c91c5",
 					"name": "command",
 					"originalRequest": {
 						"url": "https://{{url_port_sec}}/iocm/app/data/v1.1.0/deviceCapabilities?deviceId={{deviceId}}",
@@ -999,6 +999,155 @@
 				"description": ""
 			},
 			"response": []
+		},
+		{
+			"name": "get device command history",
+			"request": {
+				"url": "https://{{url_port_sec}}/iocm/app/data/v1.1.0/deviceDataHistory?deviceId={{deviceId}}&gatewayId={{gatewayId}}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "app_key",
+						"value": "{{appId}}",
+						"description": ""
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": [
+				{
+					"id": "fbba38ed-30a9-4f44-9c00-5196940e773a",
+					"name": "DeviceInfo",
+					"originalRequest": {
+						"url": "https://{{url_port_sec}}/iocm/app/dm/v1.1.0/devices?pageNo=0",
+						"method": "GET",
+						"header": [
+							{
+								"key": "app_key",
+								"value": "{{appId}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{accessToken}}",
+								"enabled": true,
+								"disabled": false
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"enabled": true,
+								"description": "The mime type of this content",
+								"disabled": false
+							}
+						],
+						"body": {}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"_postman_previewtype": "text",
+					"header": [
+						{
+							"key": "Cache-Control",
+							"value": "no-cache, no-store, max-age=0, must-revalidate",
+							"name": "Cache-Control",
+							"description": ""
+						},
+						{
+							"key": "Content-Security-Policy",
+							"value": "default-src 'self'",
+							"name": "Content-Security-Policy",
+							"description": ""
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": ""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 19 Dec 2016 13:42:23 GMT",
+							"name": "Date",
+							"description": ""
+						},
+						{
+							"key": "Expires",
+							"value": "Thu, 01 Jan 1970 00:00:00 GMT",
+							"name": "Expires",
+							"description": ""
+						},
+						{
+							"key": "Pragma",
+							"value": "no-cache",
+							"name": "Pragma",
+							"description": ""
+						},
+						{
+							"key": "Server",
+							"value": "WSO2-PassThrough-HTTP",
+							"name": "Server",
+							"description": ""
+						},
+						{
+							"key": "Strict-Transport-Security",
+							"value": "max-age=16000000; includeSubDomains; preload;",
+							"name": "Strict-Transport-Security",
+							"description": ""
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": ""
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff",
+							"name": "X-Content-Type-Options",
+							"description": ""
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "SAMEORIGIN",
+							"name": "X-Frame-Options",
+							"description": ""
+						},
+						{
+							"key": "X-XSS-Protection",
+							"value": "1; mode=block",
+							"name": "X-XSS-Protection",
+							"description": ""
+						}
+					],
+					"cookie": [
+						{
+							"expires": "Tue Jan 19 2038 03:14:07 GMT+0100 (W. Europe Standard Time)",
+							"httpOnly": true,
+							"domain": "160.44.193.23",
+							"path": "/",
+							"secure": true,
+							"value": "98B87AA8AC50A01D870BACB0BD36870B",
+							"key": "JSESSIONID"
+						}
+					],
+					"responseTime": "78",
+					"body": "{\"totalCount\":1,\"pageNo\":0,\"pageSize\":1,\"devices\":[{\"deviceId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"gatewayId\":\"f8adfcb5-b0f6-40a3-86f7-5bfe1d4d1370\",\"nodeType\":\"GATEWAY\",\"createTime\":\"20161214T145018Z\",\"lastModifiedTime\":\"20161215T122416Z\",\"deviceInfo\":{\"nodeId\":\"359245063482754\",\"name\":\"Nuel_EvK_Eric\",\"description\":null,\"manufacturerId\":\"Neul\",\"manufacturerName\":\"Neul\",\"mac\":null,\"location\":\"NL_DH\",\"deviceType\":\"MultiSensor\",\"model\":\"1623\",\"swVersion\":null,\"fwVersion\":null,\"hwVersion\":null,\"protocolType\":\"CoAP\",\"bridgeId\":null,\"status\":\"ONLINE\",\"statusDetail\":\"NONE\",\"mute\":\"FALSE\",\"supportedSecurity\":null,\"isSecurity\":null,\"signalStrength\":null,\"sigVersion\":null,\"serialNumber\":null},\"services\":null}]}"
+				}
+			]
 		}
 	]
 }
