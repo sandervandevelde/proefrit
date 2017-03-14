@@ -132,8 +132,6 @@ Please follow the steps below to use Postman:
 
 4. Click on IOT portal to edit the variables, enter your appID and Secret (send in email)
 
-![](https://github.com/tmnl-iot/proefrit/blob/master/images/postman_screenshot3.png)
-
 5. You should now be able to use the POST Login, to get an access token from the API. This access token you can enter into the environment variables (our Postman collection has a script to do this automatically).
 
 6. With the access token entered, you should be able to use:
