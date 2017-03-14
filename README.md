@@ -101,7 +101,7 @@ __High level steps for sending your Hello World:__
 
 Please make sure that the filename is in the right format: devicetype_manufacturer_model.zip 
 
-An example ZIP file can be found on the Github repository, in the folder ([/device templates]).
+An example ZIP file can be found on the Github repository, in the folder ( [/device templates] ).
 
 Specific details on how to create your own device and service templates can be found in Huawei IoT Platform Interworking Guide for NB-IoT.doc (available in the repository)
 
