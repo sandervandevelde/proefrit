@@ -120,7 +120,7 @@ Please follow the steps below to use Postman:
 
 1. Attached in the email is the file cert.zip containing the security certificates to connect to the Ocean Connect API. For use within Postman, you need to use the *.crt and *.key file. If you want to split the PKCS12 fileyourself into these two files, you can find instructions on how to do this in the chapter &quot;[Security certificates](#security-certificates-for-using-the-api)&quot;.
 
->	Please see chapter Security Certificates on how to import the certificates into Postman (use Settings > Certificates).
+>	Please see chapter [Security certificates](#security-certificates-for-using-the-api) on how to import the certificates into Postman (use Settings > Certificates).
 
 2. Import the TMNL postman collection [NB-IOT TMNL.postman\_collection.json](https://github.com/tmnl-iot/proefrit/blob/master/postman/NB-IOT%20TMNL.postman_collection.json)
 
@@ -175,7 +175,11 @@ IMEI;                    AT+CGSN=1
 IMSI;                    AT+CIMI
 ```
 
-Note: Please verify the firmware revision number anything equal or higher than SP11 will not work on the trial network.
+Each command should give a response, if not check your set-up. If no IMSI is returned, please check your SIM card, it has been noticed that some test SIM cards are not working.
+
+*Note: Please verify the firmware revision number anything equal or higher than SP11 will not work on the trial network.*
+
+*Note: SP8 has the support for extended network coverage, which will improve the signal reception in areas with less coverage.*
 
 To establish network attach:
 ```
