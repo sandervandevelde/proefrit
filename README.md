@@ -33,7 +33,7 @@ Author: Eric Barten, Thees Brons
 
 The picture below provides a high level overview of the network set-up of the T-Mobile IoT network:
 
-![](https://github.com/tmnl-iot/proefrit/blob/master/images/iot_network_overview.png)
+![](https://github.com/tmnl-iot/proefrit/blob/master/images/iot_network_overview2.png)
 
 It is important to understand that data transfer to and from the device does not happen directly. In between is the T-Mobile IoT platform, which provides an Application Programming Interface (API) towards end-user applications.
 This means that in order to send data end-end, devices need to be registered on this IoT platform, and the type of application data needs to be defined.
