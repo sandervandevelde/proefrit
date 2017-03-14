@@ -101,7 +101,7 @@ __High level steps for sending your Hello World:__
 
 Please make sure that the filename is in the right format: devicetype_manufacturer_model.zip 
 
-An example ZIP file can be found on the Github repository, in the folder ( [/device templates] ).
+An example ZIP file can be found on the Github repository, in the folder [device templates](https://github.com/tmnl-iot/proefrit/tree/master/device%20templates).
 
 Specific details on how to create your own device and service templates can be found in Huawei IoT Platform Interworking Guide for NB-IoT.doc (available in the repository)
 
@@ -118,7 +118,9 @@ Postman can also convert this collection into for example Python or PHP scripts.
 
 Please follow the steps below to use Postman:
 
-1. Use the file cert.zip containing the security certificates to connect to the Ocean Connect API. For use within Postman, you need to split the certificate into a \*.crt and \*.key file. Instructions on how to do this can be found in the chapter &quot;[Security certificates](#security-certificates-for-using-the-api)&quot;.
+1. Attached in the email is the file cert.zip containing the security certificates to connect to the Ocean Connect API. For use within Postman, you need to use the *.crt and *.key file. If you want to split the PKCS12 fileyourself into these two files, you can find instructions on how to do this in the chapter &quot;[Security certificates](#security-certificates-for-using-the-api)&quot;.
+
+>	Please see chapter Security Certificates on how to import the certificates into Postman (use Settings > Certificates).
 
 2. Import the TMNL postman collection [NB-IOT TMNL.postman\_collection.json](https://github.com/tmnl-iot/proefrit/blob/master/postman/NB-IOT%20TMNL.postman_collection.json)
 
