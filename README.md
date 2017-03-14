@@ -95,12 +95,16 @@ __High level steps for sending your Hello World:__
 
 ![](https://github.com/tmnl-iot/proefrit/blob/master/images/ocean_connect_screenshot2.png)
 
-9. You will see a service and device template which is already created for you, this will only transport RAW data from your device to the API.
+9. In some cases there will be a service and device template which was already created for you (during workshop or other event), this will only transport RAW data from your device to the API. 
 
->If you want to create your own device and service templates (for example to transfer different data types) use the upload button to upload a zip file containing your service and device template (this zip file needs to contain the files devicetype-capability.json and servicetype-capability.json both in the appropriate folder). This will define which kind of devices you will use and which kind of data they will transmit. Please make sure that the filename is in the right format: devicetype\_manufacturer\_model.zip and that you use exactly the same names in your Set Device Info API call!
+10. If there is no template, you must upload your own device and service templates (for example to transfer different data types).  Use the upload button to upload a zip file containing your service and device template (this zip file needs to contain the files devicetype-capability.json and servicetype-capability.json both in the appropriate folder). This will define which kind of devices you will use and which kind of data they will transmit. 
 
+Please make sure that the filename is in the right format: devicetype_manufacturer_model.zip 
 
->Specific details on how to create your own device and service templates can be found in Huawei IoT Platform Interworking Guide for NB-IoT.doc (available in the repository)
+An example ZIP file can be found on the Github repository, in the folder ([/device templates]).
+
+Specific details on how to create your own device and service templates can be found in Huawei IoT Platform Interworking Guide for NB-IoT.doc (available in the repository)
+
 
 If your devices are able to make a network attach and send the raw data, the final steps are to retrieve this data via the North API.
 
