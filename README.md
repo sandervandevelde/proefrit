@@ -84,7 +84,7 @@ Please take into account the following known bugs / issues when setting up a con
 
 
 
-__High level steps for sending your Hello World:__
+### High level steps for sending your Hello World
 
 - Retrieve the IMEI number of your device
 - Set up Postman or another API program with the correct environment [variables](https://github.com/tmnl-iot/proefrit/blob/master/postman/iot_portal.postman_environment.json) (certificates, app ID en app key)
