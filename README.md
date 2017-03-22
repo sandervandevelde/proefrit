@@ -53,6 +53,35 @@ This installation manual describes the steps necessary to connect to the trial I
 >This quick guide only focuses on the software side of setting up an NB-IoT connection. Please review the documentation from your module manufacturer on how to connect the module to your programmable board (the pin layout of most modules is the same as current market models working on GPRS or 3G).
 
 
+###Known issues:
+
+
+Please take into account the following known bugs / issues when setting up a connection:
+
+- Neul SP8 should provide the best coverage, but is has "auto-connect" turned on by default, you need to switch this off.
+- Neul SP11 will **not** connect to the Trial network, but will be mandatory for the production network. 
+- If you change the SIM card in your device, you need to delete your device in Ocean Connect and registrate it again via the API.
+- The names you use in your device template ZIP file, which you upload in Ocean Connect, need to be **exactly** the same as the names you use when registering a device via the API (for example, if you upload DeviceX\_ManufacturerY\_model123.zip as your device template in the Ocean Connect portal, you need the following API call to register it:
+
+```PUT Set DeviceInfo
+{
+"name":"YourName" ,
+"endUserId":"Eric",
+"mute":"FALSE",
+"manufacturerId":"ManufacturerX",
+"manufacturerName":"ManufacturerX",
+"location":"NL_DH",
+"deviceType":" DeviceX",
+"protocolType":"CoAP", "model":" model123 "
+}
+```
+
+
+
+
+
+
+
 
 __High level steps for sending your Hello World:__
 
