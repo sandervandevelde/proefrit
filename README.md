@@ -76,10 +76,20 @@ Please take into account the following known bugs / issues when setting up a con
 "protocolType":"CoAP", "model":" model123 "
 }
 ```
+The first Proefrit users already have a default template in their Ocean connect account, called Geomagnetic_fangle_VehicleDector, you have to use exactly these names in your PUT Set DeviceInfo:
 
-
-
-
+```
+{
+"name":"YourName" ,
+"endUserId":"Eric",
+"mute":"FALSE",
+"manufacturerId":"fangle",
+"manufacturerName":"fangle",
+"location":"NL_DH",
+"deviceType":" Geomagnetic",
+"protocolType":"CoAP", "model":" VehicleDector "
+}
+```
 
 
 
