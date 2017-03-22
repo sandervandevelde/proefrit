@@ -61,6 +61,7 @@ Please take into account the following known bugs / issues when setting up a con
 - Neul SP8 should provide the best coverage, but is has "auto-connect" turned on by default, you need to switch this off.
 - Neul SP11 will **not** connect to the Trial network, but will be mandatory for the production network. 
 - If you change the SIM card in your device, you need to delete your device in Ocean Connect and registrate it again via the API.
+- Make sure your SIM is functioning correctly, some test SIMs turned out to be broken. If you can read the IMSI via AT+CIMI than your SIM is working and connected properly to your hardware. 
 - The names you use in your device template ZIP file, which you upload in Ocean Connect, need to be **exactly** the same as the names you use when registering a device via the API (for example, if you upload DeviceX\_ManufacturerY\_model123.zip as your device template in the Ocean Connect portal, you need the following API call to register it:
 
 ```PUT Set DeviceInfo
