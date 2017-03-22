@@ -53,7 +53,7 @@ This installation manual describes the steps necessary to connect to the trial I
 >This quick guide only focuses on the software side of setting up an NB-IoT connection. Please review the documentation from your module manufacturer on how to connect the module to your programmable board (the pin layout of most modules is the same as current market models working on GPRS or 3G).
 
 
-###Known issues:
+### Known issues:
 
 
 Please take into account the following known bugs / issues when setting up a connection:
